@@ -36,14 +36,16 @@ class Controller implements MouseListener, KeyListener
 
     public void keyTyped(KeyEvent e){
         if (e.getKeyChar() == 'n'){
-            //when n is pressed, print out how many robbers captured and how many escaped
+            // when 'n' is pressed, print out how many robbers captured and how many escaped
             model.printScore();
         }
         if (e.getKeyChar() == 'r'){
+            // press 'r' to reset the game
             model.initialize();
             view.repaint();
         }
         if (e.getKeyChar() == 's'){
+            // press 's' to speed up the game (start a new thread)
             SpriteMover spriteMover = new SpriteMover(model,view);
             Thread thread = new Thread(spriteMover);
             thread.start();
